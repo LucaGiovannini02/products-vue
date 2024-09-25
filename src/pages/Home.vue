@@ -6,7 +6,7 @@ import { Product, Products } from '../types/Products';
 import { onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
-const { data, error, pending, call } = useAxios<Products>("/products")
+const { data, call } = useAxios<Products>("/products")
 const cartStore = useCartStore()
 const route = useRoute()
 
