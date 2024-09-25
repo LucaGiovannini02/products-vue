@@ -1,0 +1,1 @@
+export type HttpCalls = "post" | "get" | "put" | "delete"
