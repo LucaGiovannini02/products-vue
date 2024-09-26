@@ -17,6 +17,8 @@ const product = toRef(props, 'product')
 
 const qtsRef = ref(qts.value)
 
+const imgLoaded = ref(false)
+
 const addToCart = () => {
     emit('addToCart', product.value)
 }
@@ -34,7 +36,10 @@ watch(qtsRef, () => {
     <Card class="roundend w-[25rem] h-[35rem] flex flex-col justify-between">
         <template #header>
             <div class="w-full flex justify-center">
-                <img class="h-72" alt="Product image" :src="product.thumbnail" />
+                <img @load="() => imgLoaded = true" v-show="imgLoaded" class="h-72" alt="Product image" :src="product.thumbnail" />
+                <div v-if="!imgLoaded" class="w-full h-72 flex justify-center items-center">
+                    <i class="pi pi-spinner-dotted animate-spin !text-2xl" />
+                </div>
             </div>
         </template>
         <template #title>{{ product.title }}</template>
