@@ -39,7 +39,7 @@ const addToCart = (product: Product) => {
     <div v-if="data && !pending" v-for="product in data.products" class="w-full flex justify-center">
       <ProductCard @add-to-cart="addToCart" :product="product" />
     </div>
-    <div class="flex w-full justify-center py-6" v-else-if="pending">
+    <div class="flex w-full justify-center absolute top-10 left-0" v-else-if="pending">
       <i class="pi pi-spinner-dotted animate-spin !text-2xl" />
     </div>
 </template>
